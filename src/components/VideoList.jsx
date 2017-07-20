@@ -2,12 +2,13 @@ var VideoList = (props) => (
   <div className="video-list media">
     {props.videos.map((video, index) => {
       return (
-        <VideoListEntry key={index} video={video} />
+        <VideoListEntry star_wars={props.homer_simpson} key={index} video={video} />
       );
     })}
   </div>
 );
 
+//console.log({props.onVideoListEntryClick});
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
 VideoList.propTypes = {
