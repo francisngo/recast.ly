@@ -8,6 +8,11 @@ class App extends React.Component {
     };
 
     this.entryClick = this.entryClick.bind(this);
+    this.getYouTubeVideos = this.getYouTubeVideos.bind(this);
+  }
+
+  componentDidMount() {
+    this.getYouTubeVideos('cute puppies');
   }
 
   entryClick(video) {
@@ -16,10 +21,25 @@ class App extends React.Component {
     });
   }
 
+  getYouTubeVideos(query) {
+    var options = {
+      key: window.YOUTUBE_API_KEY,
+      query: query,
+      max: 5
+    };
+
+    this.props.searchYouTube(options, (videos) => {
+      this.setState({
+        currentVideo: videos[0],
+        videos: videos
+      });
+    });
+  }
+
   render() {
     return (
       <div>
-        <Nav />
+        <Nav bluesClues={this.getYouTubeVideos}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo} />
         </div>
