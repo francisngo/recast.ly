@@ -1,7 +1,7 @@
 var Nav = ({bluesClues}) => (
   <nav className="navbar">
     <div className="col-md-6 col-md-offset-3">
-      <Search sesameStreet={bluesClues}/>
+      <Search />
     </div>
   </nav>
 );

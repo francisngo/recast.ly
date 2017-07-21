@@ -9,9 +9,15 @@ var searchYouTube = (options, callback) => {
       q: options.query,
       maxResults: options.max,
       type: 'video',
+      videoEmbeddable: true
     },
     success: function(data) {
-      callback(data.items);
+      if(data.items) {
+        callback(data.items);
+      }
+    },
+    fail: function() {
+      console.log('searchYouTube failed')
     }
   });
 };

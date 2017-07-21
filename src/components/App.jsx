@@ -3,12 +3,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentVideo: window.exampleVideoData[0],
-      videos: window.exampleVideoData
+      currentVideo: null,
+      videos: []
     };
-
-    this.entryClick = this.entryClick.bind(this);
-    this.getYouTubeVideos = this.getYouTubeVideos.bind(this);
   }
 
   componentDidMount() {
@@ -39,12 +36,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav bluesClues={this.getYouTubeVideos}/>
+        <nav className="navbar">
+          <div className="row">
+            <div className="col-md-6 offset-md-3">
+              <Search handleSearchInputChange={this.getYouTubeVideos.bind(this)} />
+            </div>
+          </div>
+        </nav>
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo} />
         </div>
         <div className="col-md-5">
-          <VideoList homer_simpson={this.entryClick} videos={this.state.videos} />
+          <VideoList homer_simpson={this.entryClick.bind(this)} videos={this.state.videos} />
         </div>
       </div>
     );
