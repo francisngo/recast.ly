@@ -43,11 +43,15 @@ class App extends React.Component {
             </div>
           </div>
         </nav>
-        <div className="col-md-7">
-          <VideoPlayer video={this.state.currentVideo} />
-        </div>
-        <div className="col-md-5">
-          <VideoList homer_simpson={this.entryClick.bind(this)} videos={this.state.videos} />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-7">
+              <VideoPlayer video={this.state.currentVideo} />
+            </div>
+            <div className="col-md-5">
+              <VideoList homer_simpson={this.entryClick.bind(this)} videos={this.state.videos} />
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -12,12 +12,12 @@ var searchYouTube = (options, callback) => {
       videoEmbeddable: true
     },
     success: function(data) {
-      if(data.items) {
+      if (data.items) {
         callback(data.items);
       }
     },
     fail: function() {
-      console.log('searchYouTube failed')
+      console.log('searchYouTube failed');
     }
   });
 };
